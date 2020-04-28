@@ -7,12 +7,12 @@ import path from "path";
 
 const isDevelopment = process.env.NODE_ENV !== "production";
 
-let win;
+let trayWindow;
 
 protocol.registerSchemesAsPrivileged([{ scheme: "app", privileges: { secure: true, standard: true } }]);
 
-function createWindow() {
-  win = new BrowserWindow({
+function createTrayWindow() {
+  trayWindow = new BrowserWindow({
     width: 300,
     height: 500,
     x: 1920 - 300,
@@ -26,11 +26,11 @@ function createWindow() {
   });
 
   if (process.env.WEBPACK_DEV_SERVER_URL) {
-    win.loadURL(process.env.WEBPACK_DEV_SERVER_URL);
-    if (!process.env.IS_TEST) win.webContents.openDevTools();
+    trayWindow.loadURL(process.env.WEBPACK_DEV_SERVER_URL);
+    if (!process.env.IS_TEST) trayWindow.webContents.openDevTools();
   } else {
     createProtocol("app");
-    win.loadURL("app://./index.html");
+    trayWindow.loadURL("app://./index.html");
   }
 }
 
@@ -40,7 +40,7 @@ app.on("ready", async () => {
   tray.setToolTip("tray-template");
 
   tray.on("click", () => {
-    createWindow();
+    createTrayWindow();
   });
 });
 

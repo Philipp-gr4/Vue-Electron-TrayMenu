@@ -37,7 +37,8 @@ function createWindow() {
 app.on("ready", async () => {
   const iconPath = path.join("src", "assets", "trayIcon.png");
   const tray = new Tray(iconPath);
-  tray.setToolTip("iShares-Alerts");
+  tray.setToolTip("tray-template");
+
   tray.on("click", () => {
     createWindow();
   });

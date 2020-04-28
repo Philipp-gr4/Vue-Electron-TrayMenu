@@ -8,6 +8,7 @@ import path from "path";
 const isDevelopment = process.env.NODE_ENV !== "production";
 
 let trayWindow;
+let trayWindowIsOpen;
 
 protocol.registerSchemesAsPrivileged([{ scheme: "app", privileges: { secure: true, standard: true } }]);
 
@@ -32,7 +33,16 @@ function createTrayWindow() {
     createProtocol("app");
     trayWindow.loadURL("app://./index.html");
   }
+
+  trayWindow.on("hide", () => {
+    trayWindowIsOpen = false;
+  });
+
+  trayWindow.on("show", () => {
+    trayWindowIsOpen = true;
+  });
 }
+
 
 app.on("ready", async () => {
   const iconPath = path.join("src", "assets", "trayIcon.png");
@@ -40,7 +50,18 @@ app.on("ready", async () => {
   tray.setToolTip("tray-template");
 
   tray.on("click", () => {
-    createTrayWindow();
+    if (trayWindow === undefined) {
+      createTrayWindow();
+      trayWindowIsOpen = true;
+      return;
+    }
+    if (trayWindowIsOpen === true) {
+      trayWindow.hide();
+      return;
+    }
+    if (trayWindowIsOpen === false) {
+      trayWindow.show();
+    }
   });
 });
 

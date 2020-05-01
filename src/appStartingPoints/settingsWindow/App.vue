@@ -1,29 +1,6 @@
 <template>
-  <div id="app">
-    <div class="buttons">
-      <button @click="closeApplication" class="close-button">Close Application</button>
-      <button @click="openSettings" class="settings-button">Settings</button>
-    </div>
-  </div>
+  <div id="app">settings</div>
 </template>
-
-<script>
-import electronService from "./services/electronService";
-import settingsWindow from "./settingsWindow";
-
-export default {
-  name: "App",
-  methods: {
-    closeApplication() {
-      electronService.closeApplication();
-    },
-    openSettings() {
-      electronService.hideCurrentWindow();
-      settingsWindow.createSettingsWindow();
-    }
-  }
-};
-</script>
 
 <style>
 #app {

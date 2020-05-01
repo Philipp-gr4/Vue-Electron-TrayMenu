@@ -1,5 +1,5 @@
 <template>
-  <div id="app">settings</div>
+  <div id="app">Settings</div>
 </template>
 
 <style>

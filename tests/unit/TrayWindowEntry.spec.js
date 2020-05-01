@@ -1,12 +1,12 @@
 import { shallowMount } from "@vue/test-utils";
 import electronService from "../../src/services/electronService";
-import App from "../../src/App.vue";
+import TrayWindowEntry from "../../src/appStartingPoints/trayWindow/TrayWindowEntry.vue";
 import settingsWindow from "../../src/settingsWindow";
 
-const wrapper = shallowMount(App);
+const wrapper = shallowMount(TrayWindowEntry);
 const { vm } = wrapper;
 
-describe("App", () => {
+describe("TrayWindowEntry", () => {
   describe("closeApplication", () => {
     it("should call closeApplication from Service", () => {
       electronService.closeApplication = jest.fn();

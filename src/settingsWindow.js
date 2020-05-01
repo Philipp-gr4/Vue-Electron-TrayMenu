@@ -13,8 +13,8 @@ const settingsWindow = {
       webPreferences: { webSecurity: false, nodeIntegration: true }
     });
 
-    if (process.env.WEBPACK_DEV_SERVER_URL) {
-      window.loadURL(`${process.env.WEBPACK_DEV_SERVER_URL}settings.html`);
+    if (process.env.VUE_APP_DEV_URL) {
+      window.loadURL(`${process.env.VUE_APP_DEV_URL}settings.html`);
     } else {
       window.loadURL("app://./settings.html");
     }

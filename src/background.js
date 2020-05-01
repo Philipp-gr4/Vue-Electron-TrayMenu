@@ -26,8 +26,8 @@ function createTrayWindow() {
     }
   });
 
-  if (process.env.WEBPACK_DEV_SERVER_URL) {
-    trayWindow.loadURL(`${process.env.WEBPACK_DEV_SERVER_URL}tray.html`);
+  if (process.env.VUE_APP_DEV_URL) {
+    trayWindow.loadURL(`${process.env.VUE_APP_DEV_URL}tray.html`);
     // if (!process.env.IS_TEST) trayWindow.webContents.openDevTools();
   } else {
     createProtocol("app");

@@ -14,9 +14,9 @@ const settingsWindow = {
     });
 
     if (process.env.WEBPACK_DEV_SERVER_URL) {
-      window.loadURL(process.env.WEBPACK_DEV_SERVER_URL);
+      window.loadURL(`${process.env.WEBPACK_DEV_SERVER_URL}settings.html`);
     } else {
-      window.loadURL("app://./index.html");
+      window.loadURL("app://./settings.html");
     }
   }
 

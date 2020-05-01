@@ -27,11 +27,11 @@ function createTrayWindow() {
   });
 
   if (process.env.WEBPACK_DEV_SERVER_URL) {
-    trayWindow.loadURL(process.env.WEBPACK_DEV_SERVER_URL);
-    if (!process.env.IS_TEST) trayWindow.webContents.openDevTools();
+    trayWindow.loadURL(`${process.env.WEBPACK_DEV_SERVER_URL}tray.html`);
+    // if (!process.env.IS_TEST) trayWindow.webContents.openDevTools();
   } else {
     createProtocol("app");
-    trayWindow.loadURL("app://./index.html");
+    trayWindow.loadURL("app://./tray.html");
   }
 
   trayWindow.on("hide", () => {

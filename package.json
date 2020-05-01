@@ -16,9 +16,10 @@
   "main": "background.js",
   "dependencies": {
     "core-js": "^3.6.4",
-    "vue-cli-plugin-electron-builder": "^1.4.6",
     "electron": "^6.0.0",
-    "vue": "^2.6.11"
+    "minimist": "^1.2.5",
+    "vue": "^2.6.11",
+    "vue-cli-plugin-electron-builder": "^1.4.6"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^4.3.0",

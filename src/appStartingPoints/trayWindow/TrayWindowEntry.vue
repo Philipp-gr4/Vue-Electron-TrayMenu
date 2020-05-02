@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <div class="buttons">
-      <button @click="closeApplication" class="close-button">Close Application</button>
-      <button @click="openSettings" class="settings-button">Settings</button>
+      <FancyButton @click.native="closeApplication" :text="'Close Application'" />
+      <FancyButton @click.native="openSettings" :text="'Settings'" />
     </div>
   </div>
 </template>
@@ -10,9 +10,13 @@
 <script>
 import electronService from "../../services/electronService";
 import settingsWindow from "../../settingsWindow";
+import FancyButton from "../../components/a/FancyButton.vue";
 
 export default {
   name: "App",
+  components: {
+    FancyButton
+  },
   methods: {
     closeApplication() {
       electronService.closeApplication();
@@ -37,27 +41,5 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-button {
-  width: 100%;
-  height: 30px;
-  background-color: white;
-  border: 2px solid #494949;
-  color: #494949;
-  text-transform: uppercase;
-  text-decoration: none;
-  margin-bottom: 5px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: all 0.4s ease 0s;
-}
-button:hover {
-  background-color: #494949;
-  border: 2px solid black;
-  color: white;
-}
-button:active {
-  letter-spacing: 1px;
-  transition: all 0.1s ease 0s;
 }
 </style>

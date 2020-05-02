@@ -5,19 +5,19 @@
 yarn install
 ```
 
-### Compiles and hot-reloads for development
+### Compiles for development
 ```
-yarn serve
+yarn electron:serve
 ```
 
 ### Compiles and minifies for production
 ```
-yarn build
+yarn electron:build
 ```
 
-### Run your unit tests
+### Run your unit test in watch mode
 ```
-yarn test:unit
+yarn tdd
 ```
 
 ### Lints and fixes files
